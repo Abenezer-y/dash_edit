@@ -43,7 +43,7 @@ const EditTable = () => {
     <Layout>
       <Header  style={{height:150, textAlign: 'center', padding:6}}>
         <Typography>
-          <Title style={{color: "white", fontSize:26}}>
+          <Title style={{color: "white", fontSize:24}}>
            Lusail Winter Wonderland - Rides Status Update
           </Title>
           <Text style={{color: "white", fontSize:15}}>{updated_on}</Text>
