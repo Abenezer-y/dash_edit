@@ -4,17 +4,18 @@ import React, {useState, useEffect} from 'react';
 
 
 const { Header, Content } = Layout;
-const { Title } = Typography;
+const { Title, Text  } = Typography;
 
 
 
 
 const EditTable = () => {
   const [ride, setTable] = useState([])
+  const [updated_on, setTime] = useState([])
   const fetchStatus = async () => {
     await fetch("https://dashapi.herokuapp.com/rides",).then(
       response => {
-        if (response.ok){return response.json()} throw response }).then( data => { setTable(data) }
+        if (response.ok){return response.json()} throw response }).then( data => { setTable(data[0]); setTime(data[1]) }
       )}
   useEffect(() => { fetchStatus() }, [])
 
@@ -45,6 +46,7 @@ const EditTable = () => {
           <Title style={{color: "white", fontSize:26}}>
            Lusail Winter Wonderland - Rides Status Update
           </Title>
+          <Text style={{color: "white", fontSize:15}}>{updated_on}</Text>
       </Typography>
       </Header>
       <Content style={{margin:5, padding:3, alignContent:'center'}}>    
